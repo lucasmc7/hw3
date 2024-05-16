@@ -8,17 +8,22 @@ class PlacesController < ActionController::Base
   end
 
   def create
-    # start with a new Company
+    # start with a new Place
     @place = Place.new
 
-    # assign user-entered form data to Company's columns
     @place["name"] = params["name"]
 
-    # save Company row
-    @company.save
+    @place.save
 
-    # redirect user
-    redirect_to "/companies"
+    redirect_to "/places"
+  end
+
+  def show
+    # find a Company
+    @place = Place.find_by({ "id" => params["id"] })
+    # find Contacts for the Company
+    #@contacts = Contact.where({ "company_id" => @company["id"] })
+    # render companies/show view with details about Company
   end
 
 end
