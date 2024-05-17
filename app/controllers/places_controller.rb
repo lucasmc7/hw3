@@ -22,7 +22,7 @@ class PlacesController < ActionController::Base
     # find a Company
     @place = Place.find_by({ "id" => params["id"] })
     # find Contacts for the Company
-    #@contacts = Contact.where({ "company_id" => @company["id"] })
+    @entries = Entry.where({ "place_id" => @place["id"] })
     # render companies/show view with details about Company
   end
 
