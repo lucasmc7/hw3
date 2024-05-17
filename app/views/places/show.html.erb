@@ -1,11 +1,13 @@
-<%= @place["name"]%>
+<h1><%= @place["name"]%></h1>
 
 
 <ul>
   <% for entry in @entries %>
     <li>
       <a href="/entries/<%= entry["id"] %>?place_id=<%=@place["id"]%>">
-        <%= entry["title"] %>, <%= entry["posted_on"] %>
+        <h2><%= entry["title"] %></h2> 
+        <%= entry["posted_on"] %>
+        <p> <%=entry["description"]%> </p>
       </a>
     </li>
   <% end %>
@@ -14,4 +16,9 @@
 
 <p>
   <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
+</p>
+
+
+<p>
+  <a href="/places">Back</a>
 </p>
